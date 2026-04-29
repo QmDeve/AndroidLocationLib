@@ -1,0 +1,75 @@
+plugins {
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.compose)
+}
+
+android {
+    namespace 'com.qmdeve.location.demo'
+    compileSdk { version = release(37) }
+
+    defaultConfig {
+        applicationId "com.qmdeve.location.demo"
+        minSdk 24
+        targetSdk 37
+        versionCode 1
+        versionName "1.0.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            vcsInfo.include = false
+        }
+    }
+
+    buildFeatures {
+        compose true
+    }
+
+    packaging {
+        resources {
+            excludes += [
+                    "DebugProbesKt.bin",
+                    "kotlin-tooling-metadata.json",
+                    "kotlin/**",
+                    "META-INF/*.version",
+                    "META-INF/**/LICENSE.txt"
+            ]
+        }
+    }
+
+    dependenciesInfo {
+        includeInApk false
+        includeInBundle false
+    }
+
+    lint {
+        checkReleaseBuilds false
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
+    }
+}
+
+kotlin {
+    jvmToolchain(24)
+    compilerOptions {
+        freeCompilerArgs.addAll(
+                "-Xlambdas=class"
+        )
+    }
+}
+
+dependencies {
+    implementation project(':Library')
+    implementation libs.androidx.appcompat
+    implementation libs.androidx.core.ktx
+    implementation libs.androidx.material
+    implementation libs.androidx.activity.compose
+    implementation libs.androidx.compose.foundation
+    implementation libs.androidx.compose.ui
+}

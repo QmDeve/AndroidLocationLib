@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">AndroidLocationLib</string>
+    <string name="single_location">Single Location</string>
+    <string name="start_location">Start Location</string>
+    <string name="stop_location">Stop Location</string>
+</resources>

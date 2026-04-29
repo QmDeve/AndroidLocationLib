@@ -1,0 +1,68 @@
+plugins {
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.vanniktech.maven.publish)
+}
+
+android {
+    namespace 'com.qmdeve.location'
+    compileSdk { version = release(37) }
+
+    defaultConfig {
+        minSdk 24
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+dependencies {
+    implementation libs.play.services.location
+}
+
+if (!project.hasProperty('jitpack')) {
+    mavenPublishing {
+        coordinates(GROUP_NAME, ARTIFACT_NAME, VERSION)
+
+        pom {
+            name = 'Android Location Lib For QmDeve'
+            description = 'A lightweight Android Location Library that provides easy-to-use APIs for GPS positioning.'
+            url = 'https://github.com/QmDeve/AndroidLocationLib'
+            inceptionYear = '2026'
+
+            organization {
+                name = 'QmDeve'
+                url = 'https://www.qmdeve.com'
+            }
+
+            licenses {
+                license {
+                    name = 'MIT License'
+                    url = 'https://github.com/QmDeve/AndroidLocationLib/blob/master/LICENSE'
+                    distribution = 'repo'
+                }
+            }
+
+            developers {
+                developer {
+                    id = 'qmdeve'
+                    name = 'Donny Yang'
+                    email = 'donny@qmdeve.com'
+                    organization = 'QmDeve'
+                    organizationUrl = 'https://www.qmdeve.com'
+                }
+            }
+
+            scm {
+                connection = 'scm:git:github.com/QmDeve/AndroidLocationLib.git'
+                developerConnection = 'scm:git:ssh://github.com/QmDeve/AndroidLocationLib.git'
+                url = 'https://github.com/QmDeve/AndroidLocationLib'
+                tag = "v${VERSION}"
+            }
+        }
+
+        publishToMavenCentral()
+        signAllPublications()
+    }
+}
