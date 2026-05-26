@@ -11,9 +11,6 @@
 [![Maven Central Version](https://img.shields.io/maven-central/v/com.qmdeve.location/location?label=Maven%20Central)](https://central.sonatype.com/artifact/com.qmdeve.location/location)
 [![JitPack](https://jitpack.io/v/com.qmdeve/AndroidLocationLib.svg)](https://jitpack.io/#com.qmdeve/AndroidLocationLib)
 
-[![Telegram Groups](https://img.shields.io/badge/Telegram%20Groups-2CA5E0?style=brightgreen&logo=telegram&logoColor=white)](https://t.me/QmDeve)
-[![XChat Groups](https://img.shields.io/badge/XChat%20Groups-202020?style=brightgreen&logo=x&logoColor=white)](https://x.com/i/chat/group_join/g2048366788006846529/LNvKUQelO9)
-
 </div>
 
 ## Integration
